@@ -27,7 +27,8 @@ page to choose a stable version to use, avoid the `@stable` meta constraint.
 Create a Client and you're done!
 
 ```php
-$client = new \Blablacar\Memcached\Client('127.0.0.1', 6379); // Default values
+$client = new \Blablacar\Memcached\Client();
+$client->addServer('127.0.0.1', 11211);
 $client->set('foobar', 42); // Return 1
 ```
 

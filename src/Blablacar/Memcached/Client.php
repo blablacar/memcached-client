@@ -68,6 +68,10 @@ class Client
      */
     public function getMemcached()
     {
+        if (null === $this->memcached) {
+            $this->connect();
+        }
+
         return $this->memcached;
     }
 

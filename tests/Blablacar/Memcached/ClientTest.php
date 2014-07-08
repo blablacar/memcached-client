@@ -15,8 +15,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client();
         $client->addServer('127.0.0.1', 11211);
-        $this->assertNull($client->getMemcached());
-        $client->connect();
         $this->assertInstanceOf('\Memcached', $client->getMemcached());
     }
 
@@ -24,7 +22,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client();
         $client->addServer('127.0.0.1', 11211);
-        $this->assertNull($client->getMemcached());
         $return = $client->get('foo.bar');
         $this->assertInstanceOf('\Memcached', $client->getMemcached());
         $this->assertFalse($return);
@@ -34,6 +31,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         $client = new Client();
         $client->addServers(array('127.0.0.1', 11211), array('127.0.0.1', 11212));
+        $this->assertInstanceOf('\Memcached', $client->getMemcached());
         $this->assertEquals(1, $client->set('foobar', 42));
         $this->assertEquals(42, $client->get('foobar'));
     }

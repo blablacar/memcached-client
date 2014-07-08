@@ -47,21 +47,6 @@ class Client
     }
 
     /**
-     * connect
-     *
-     * @return void
-     */
-    public function connect()
-    {
-        if (null !== $this->memcached) {
-            return;
-        }
-
-        $this->memcached = new \Memcached($this->persistentId);
-        $this->memcached->addServers($this->servers);
-    }
-
-    /**
      * getMemcached
      *
      * @return \Redis|null
@@ -90,5 +75,20 @@ class Client
         }
 
         return call_user_func_array(array($this->memcached, $name), $arguments);
+    }
+
+    /**
+     * connect
+     *
+     * @return void
+     */
+    protected function connect()
+    {
+        if (null !== $this->memcached) {
+            return;
+        }
+
+        $this->memcached = new \Memcached($this->persistentId);
+        $this->memcached->addServers($this->servers);
     }
 }

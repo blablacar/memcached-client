@@ -33,7 +33,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function test_set_get()
     {
         $client = new Client();
-        $client->addServer('127.0.0.1', 11211);
+        $client->addServers(array('127.0.0.1', 11211), array('127.0.0.1', 11212));
         $this->assertEquals(1, $client->set('foobar', 42));
         $this->assertEquals(42, $client->get('foobar'));
     }

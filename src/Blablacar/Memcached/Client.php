@@ -38,7 +38,11 @@ class Client
     public function addServers(array $servers)
     {
         foreach ($servers as $server) {
-            $this->addServer($server);
+            $this->addServer(
+                $server[0],
+                $server[1],
+                isset($server[2])? $server[2] : null
+            );
         }
     }
 

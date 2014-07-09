@@ -57,8 +57,6 @@ class Client extends BaseClient
     public function setByKey() {}
     public function setMulti() {}
     public function setMultiByKey() {}
-    public function setOption() {}
-    public function setOptions() {}
     public function setSaslAuthData() {}
     public function touch() {}
     public function touchByKey() {}

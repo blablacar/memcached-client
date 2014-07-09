@@ -7,6 +7,7 @@ class Client
     protected $persistentId;
 
     protected $servers = array();
+    protected $options = array();
     protected $memcached;
 
     public function __construct($persistentId = null)
@@ -44,6 +45,43 @@ class Client
                 isset($server[2])? $server[2] : null
             );
         }
+    }
+
+    /**
+     * setOption
+     *
+     * @param int $option
+     * @param mixed $value
+     *
+     * @return void
+     */
+    public function setOption($option, $value)
+    {
+        $this->options[$option] = $value;
+    }
+
+    /**
+     * setOptions
+     *
+     * @param array $options
+     *
+     * @return void
+     */
+    public function setOptions(array $options)
+    {
+        foreach ($options as $option => $value) {
+            $this->setOption($option, $value);
+        }
+    }
+
+    /**
+     * isConnected
+     *
+     * @return bool
+     */
+    public function isConnected()
+    {
+        return null !== $this->memcached;
     }
 
     /**

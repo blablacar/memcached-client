@@ -2,7 +2,6 @@
 
 namespace Blablacar\Memcached;
 
-use Blablacar\Memcached\Client;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
@@ -49,7 +48,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $client->setOptions(
             array(
                 array(\Memcached::OPT_LIBKETAMA_COMPATIBLE, true),
-                array(\Memcached::OPT_DISTRIBUTION, \Memcached::DISTRIBUTION_CONSISTENT)
+                array(\Memcached::OPT_DISTRIBUTION, \Memcached::DISTRIBUTION_CONSISTENT),
             )
         );
         $this->assertFalse($client->isConnected());

@@ -16,13 +16,11 @@ class Client
     }
 
     /**
-     * addServer
+     * addServer.
      *
      * @param string $host
      * @param int    $port
      * @param int    $weight
-     *
-     * @return void
      */
     public function addServer($host, $port, $weight = 0)
     {
@@ -30,11 +28,9 @@ class Client
     }
 
     /**
-     * addServers
+     * addServers.
      *
      * @param array $servers
-     *
-     * @return void
      */
     public function addServers(array $servers)
     {
@@ -42,18 +38,16 @@ class Client
             $this->addServer(
                 $server[0],
                 $server[1],
-                isset($server[2])? $server[2] : null
+                isset($server[2]) ? $server[2] : null
             );
         }
     }
 
     /**
-     * setOption
+     * setOption.
      *
-     * @param int $option
+     * @param int   $option
      * @param mixed $value
-     *
-     * @return void
      */
     public function setOption($option, $value)
     {
@@ -61,11 +55,9 @@ class Client
     }
 
     /**
-     * setOptions
+     * setOptions.
      *
      * @param array $options
-     *
-     * @return void
      */
     public function setOptions(array $options)
     {
@@ -75,7 +67,7 @@ class Client
     }
 
     /**
-     * isConnected
+     * isConnected.
      *
      * @return bool
      */
@@ -85,7 +77,7 @@ class Client
     }
 
     /**
-     * getMemcached
+     * getMemcached.
      *
      * @return \Redis|null
      */
@@ -99,7 +91,7 @@ class Client
     }
 
     /**
-     * __call
+     * __call.
      *
      * @param string $name
      * @param array  $arguments
@@ -116,9 +108,7 @@ class Client
     }
 
     /**
-     * connect
-     *
-     * @return void
+     * connect.
      */
     protected function connect()
     {
